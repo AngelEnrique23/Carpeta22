@@ -1,0 +1,241 @@
+:root{
+    --blanco: #ffffff;
+    --oscuro:#212121;
+    --primario : #ffc107;
+    --secundario: #0097A7;
+    --gris:#757575;
+}
+/*Globales*/
+/* sneepet de comentarios es Co y de Queries es mq */
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;/**snepet que hace mas facil usar el modelo de cajas*/
+    scroll-snap-type: y mandatory;/* hace efecto scrooll con el mause  */
+}
+*, *:before, *:after{
+    box-sizing: inherit; /*selecciona todo requeridp para el anterior*/
+}
+body{
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    background-image:linear-gradient(to top, #DFE9F3 0%, var(--blanco) 100%) ;/* dar  color y degradado de fondo */
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;/*le quita el decorado texto, en este caso la linea... tene mas opciones*/
+    text-transform: uppercase;/*convierte el texto a mayusculas(tiene mas propiedades)*/
+    font-weight: bold; /*hace en negritas el texto*/
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+.sombra{
+    -webkit-box-shadow: 3px 8px 13px 0px rgba(204,196,204,1);
+    -moz-box-shadow: 3px 8px 13px 0px rgba(204,196,204,1);
+    box-shadow: 3px 8px 13px 0px rgba(204,196,204,1);
+background-color: var(--blanco);
+padding: 1rem;
+border-radius: 1rem;/*esquinas redondeadas*/
+}
+/* tipografia */
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+} 
+h3{
+    font-size: 1.8rem;
+}
+h1, h2, h3{
+    text-align: center;
+}
+.titulo span {
+    font-size: 2rem;
+}
+.w-100{
+    width: 100%;
+}
+@media (min-width: 760px){ 
+    .w-100{
+        width: auto;
+    }
+}
+.flex{
+justify-content: flex-end;
+}
+.alinear-derecha{
+    display: flex;
+}
+/* text-transform: uppercase; cambiar a mayusculas*/ 
+
+@media (min-width: 768px){ 
+    .boton{
+        width: auto;
+    }
+}
+/* navegacion principal */
+.nav-bg{
+    background-color: var(--secundario);
+}
+.navegacion-principal{
+   display: flex; /*se usan para los nav */
+   flex-direction: column;
+ /*Es como un pading*/
+}
+@media (min-width: 480px){  /*es un querie, ajusta la pantalla en base a diferentes dspositivos, aqui es un celular */
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem; 
+}
+.navegacion-principal a:hover{/*hace la animacion de color al seleccionar el link del nav*/
+background-color: var(--primario);
+color: var(--oscuro);
+}
+.hero{
+background-image: url(../imagenes/hero.jpg); /*agregar imagen de fondo*/
+background-repeat: no-repeat; /*no se repita la imagen si se aleja la pagina*/
+background-size: cover;/*define el tamaño de la imagen*/
+height: 380px;
+position: relative;
+margin-bottom: 2rem;
+}
+.contenido-hero{
+position: absolute;
+background-color: rgba(0,0,0, .6 );  /*transparencia se usaba antes.  css matic es una pagina que genera esos degradados*/ 
+background-color: rgb(0 0 0 / 70%); /**nueva forma pero algunos navegadores no la soportan*/
+width: 100%;
+height: 100%;
+/*sirve para alinear horizontal y erticalmente*/
+display: flex;
+flex-direction: column; 
+align-items: center;
+justify-content: center;
+}
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+/* Servicios */
+@media (min-width: 760px){ 
+    .servicios{
+        display: grid;
+        grid-template-columns:repeat(3, 1fr); /* Divide en fracciones */
+        column-gap: 1.5rem; /* separacion de columnas */
+    }    
+}
+/* scroll snap */
+.servicios, 
+.navegacion-principal, 
+.formulario{
+    scroll-snap-align: center; /* donde quieres que se pare el scroll */
+    scroll-snap-stop: always;
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3{
+color: var(--secundario);
+font-weight: normal;
+
+}
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* contacto */
+.formulario{
+background-color: var(--gris);
+width: min(60rem, 100%); /* utiliza el valor mas pequeño */
+margin: 0 auto;
+padding: 2rem;
+border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+.boton:hover{
+    cursor: pointer;
+}
+
+@media (min-width: 768px){ 
+    .campos{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }    
+    .campo:nth-child(3){ /* Si hay 3 campos con el mismo nombre selecciona uno, es como un arreglo  */
+        grid-column: 1 / 3;
+    }
+    .campo:nth-child(4){ /* Si hay 3 campos con el mismo nombre selecciona uno, es como un arreglo  */
+        grid-column: 1 / 3;
+    }
+}
+.campo{
+margin-bottom: 1rem;
+}
+.campo label{
+color: var(--blanco);
+font-weight: bold;
+margin-bottom: .5rem;
+display: block;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+.enviar .boton{
+    width: 100%;
+}
+.campo textarea{
+    height: 15rem;
+}
+/* footer */
+.footer{
+    text-align: center;
+}
